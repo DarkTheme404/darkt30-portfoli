@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://darkt30-portfoli.vercel.app/sitemap.xml
