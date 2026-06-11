@@ -89,9 +89,8 @@ SMTP_PASS=app-password
 5. **Output directory**: `landing`
 6. Deploy → получишь URL типа `darkt30-portfolio.vercel.app`
 
-> Форма не будет работать на Vercel по умолчанию (нет SMTP). Решения:
-> - Используй **Formspree** (https://formspree.io) — бесплатно до 50 заявок/мес
-> - Или задеплой **server** отдельно на Railway/Render
+> Форма подключена к **Formspree** (https://formspree.io/f/xzdqaavy).
+> Письма автоматически приходят на `artem.kurskiy.04@inbox.ru`. Бесплатно до 50 заявок/мес.
 
 ### 2. Netlify (тоже бесплатно)
 
