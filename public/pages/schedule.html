@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Расписание — ТРИУМФ | Расписание тренировок в Иваново</title>
+  <meta name="description" content="Расписание тренировок клуба ТРИУМФ. Кудо, панкратион, ММА, ОФП. Детские и взрослые группы.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css?v=4">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,5 95,38 78,95 22,95 5,38' fill='%23e10600'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="/index.html" class="logo"><span class="mark"></span>ТРИУМФ</a>
+    <ul class="nav-menu">
+      <li><a href="/index.html">Главная</a></li>
+      <li><a href="/pages/about.html">О клубе</a></li>
+      <li><a href="/pages/directions.html">Направления</a></li>
+      <li><a href="/pages/coaches.html">Тренеры</a></li>
+      <li><a href="/pages/schedule.html">Расписание</a></li>
+      <li><a href="/pages/pricing.html">Цены</a></li>
+      <li><a href="/pages/blog.html">Блог</a></li>
+      <li><a href="/pages/contacts.html">Контакты</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:+74932000000" class="btn btn-ghost btn-sm">📞 Позвонить</a>
+      <a href="/pages/signup.html" class="btn btn-primary btn-sm">Записаться</a>
+      <button class="burger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="breadcrumbs">
+      <a href="/index.html">Главная</a> · <span>Расписание</span>
+    </div>
+    <h1>РАСПИСАНИЕ <span class="accent">ТРЕНИРОВОК</span></h1>
+    <p>Удобное время для детей и взрослых. Фильтруй по направлению и возрасту.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="schedule-filters reveal">
+      <button class="filter-btn active" data-filter="all">Все</button>
+      <button class="filter-btn" data-filter="kudo">Кудо</button>
+      <button class="filter-btn" data-filter="pankration">Панкратион</button>
+      <button class="filter-btn" data-filter="mma">ММА</button>
+      <button class="filter-btn" data-filter="ofp">ОФП</button>
+      <button class="filter-btn" data-filter="kids">Дети</button>
+      <button class="filter-btn" data-filter="adults">Взрослые</button>
+    </div>
+
+    <div class="schedule-table reveal" id="schedule"></div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container reveal" style="text-align: center;">
+    <h2>ЗАПИШИСЬ <span style="color: var(--black);">ОНЛАЙН</span></h2>
+    <p>Выбери удобное время и приходи на пробное занятие.</p>
+    <a href="/pages/signup.html" class="btn btn-primary">Записаться на занятие</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><a href="/index.html" class="logo" data-logo-wrap style="margin-bottom: 16px;"><span class="mark"></span>ТРИУМФ</a><p>Клуб единоборств в Иваново. С 2008 года.</p></div>
+      <div><h5>КЛУБ</h5><ul><li><a href="/pages/about.html">О клубе</a></li><li><a href="/pages/coaches.html">Тренеры</a></li><li><a href="/pages/schedule.html">Расписание</a></li></ul></div>
+      <div><h5>НАПРАВЛЕНИЯ</h5><ul><li><a href="/pages/directions.html#kudo">Кудо</a></li><li><a href="/pages/directions.html#pankration">Панкратион</a></li><li><a href="/pages/directions.html#mma">ММА</a></li></ul></div>
+      <div><h5>КОНТАКТЫ</h5><ul><li><a href="tel:+74932000000">+7 (4932) 00-00-00</a></li><li>г. Иваново, Рабфаковская, 8к5</li><li>Пн-Вс: 08:00 — 23:00</li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Клуб «ТРИУМФ»</span>
+      <span><a href="/admin/index.html" style="color: var(--red);">Админ-панель</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="float-widget">
+  <a href="https://t.me/" class="float-btn tg">💬</a>
+  <a href="https://wa.me/79301234567" class="float-btn wa">📱</a>
+  <button class="float-btn cb" data-modal-open>📞</button>
+</div>
+<div class="modal-overlay">
+  <div class="modal">
+    <button class="modal-close" data-modal-close>✕</button>
+    <h3>ЗАКАЗАТЬ ЗВОНОК</h3>
+    <p>Перезвоним в течение 5 минут.</p>
+    <form data-form>
+      <div class="form-group"><label>Имя</label><input type="text" name="name" required></div>
+      <div class="form-group"><label>Телефон</label><input type="tel" name="phone" required></div>
+      <button type="submit" class="btn btn-primary" style="width: 100%;">Жду звонка</button>
+      <div class="form-success"></div>
+    </form>
+  </div>
+</div>
+
+<script src="/js/site-data.v3.js?v=4"></script>
+
+<script>
+  const SCHEDULE = [
+    { day: 'Пн', time: '10:00 — 11:30', cls: 'ОФП · Дети 6-10', coach: 'Мария Лебедева', cat: 'ofp kids' },
+    { day: 'Пн', time: '17:00 — 18:30', cls: 'Кудо · Дети 6-12', coach: 'Игорь Соколов', cat: 'kudo kids' },
+    { day: 'Пн', time: '19:00 — 20:30', cls: 'Кудо · Взрослые', coach: 'Алексей Волков', cat: 'kudo adults' },
+    { day: 'Пн', time: '20:30 — 22:00', cls: 'ММА · Продвинутые', coach: 'Сергей Петров', cat: 'mma adults' },
+    { day: 'Вт', time: '10:00 — 11:30', cls: 'ОФП · Взрослые', coach: 'Анна Кузнецова', cat: 'ofp adults' },
+    { day: 'Вт', time: '17:00 — 18:30', cls: 'Панкратион · Дети 10+', coach: 'Дмитрий Орлов', cat: 'pankration kids' },
+    { day: 'Вт', time: '19:00 — 20:30', cls: 'Панкратион · Взрослые', coach: 'Дмитрий Орлов', cat: 'pankration adults' },
+    { day: 'Ср', time: '10:00 — 11:30', cls: 'ОФП · Дети 6-10', coach: 'Мария Лебедева', cat: 'ofp kids' },
+    { day: 'Ср', time: '17:00 — 18:30', cls: 'Кудо · Дети 6-12', coach: 'Игорь Соколов', cat: 'kudo kids' },
+    { day: 'Ср', time: '19:00 — 20:30', cls: 'Кудо · Взрослые', coach: 'Алексей Волков', cat: 'kudo adults' },
+    { day: 'Ср', time: '20:30 — 22:00', cls: 'ММА · Продвинутые', coach: 'Сергей Петров', cat: 'mma adults' },
+    { day: 'Чт', time: '17:00 — 18:30', cls: 'Панкратион · Дети 10+', coach: 'Дмитрий Орлов', cat: 'pankration kids' },
+    { day: 'Чт', time: '19:00 — 20:30', cls: 'Панкратион · Взрослые', coach: 'Дмитрий Орлов', cat: 'pankration adults' },
+    { day: 'Пт', time: '17:00 — 18:30', cls: 'Кудо · Дети 6-12', coach: 'Игорь Соколов', cat: 'kudo kids' },
+    { day: 'Пт', time: '19:00 — 20:30', cls: 'Кудо · Взрослые', coach: 'Алексей Волков', cat: 'kudo adults' },
+    { day: 'Пт', time: '20:30 — 22:00', cls: 'Спарринги · PRO', coach: 'Сергей Петров', cat: 'mma adults' },
+    { day: 'Сб', time: '11:00 — 13:00', cls: 'ОФП · Все возрасты', coach: 'Мария Лебедева', cat: 'ofp kids adults' },
+    { day: 'Сб', time: '14:00 — 16:00', cls: 'Сборная · Подготовка к ЧР', coach: 'Алексей Волков', cat: 'kudo mma adults' },
+    { day: 'Вс', time: '11:00 — 13:00', cls: 'Открытая тренировка', coach: 'Все тренеры', cat: 'kudo pankration mma ofp kids adults' }
+  ];
+
+  const table = document.getElementById('schedule');
+  table.innerHTML = `
+    <div class="schedule-row head">
+      <div>День</div>
+      <div>Время</div>
+      <div>Группа</div>
+      <div>Тренер</div>
+      <div></div>
+    </div>
+    ${SCHEDULE.map(s => `
+      <div class="schedule-row" data-cat="${s.cat}">
+        <div class="schedule-day">${s.day}</div>
+        <div class="schedule-time">${s.time}</div>
+        <div class="schedule-class">${s.cls}</div>
+        <div class="schedule-coach">${s.coach}</div>
+        <div><a href="/pages/signup.html" class="btn btn-ghost btn-sm">Записаться</a></div>
+      </div>
+    `).join('')}
+  `;
+
+  // re-init filters
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.filter;
+      document.querySelectorAll('.schedule-row[data-cat]').forEach(r => {
+        r.style.display = (cat === 'all' || r.dataset.cat.includes(cat)) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>

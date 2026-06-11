@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Артём Курский — Web-разработка сайтов под ключ | Иваново</title>
+<meta name="description" content="Создаю современные сайты, которые продают. Лендинги от 25 000 ₽, многостраничники с админкой от 80 000 ₽. Кейс TRIUMPH — клуб единоборств в Иваново. Бесплатный прототип за 1 день.">
+<meta name="keywords" content="создание сайтов, разработка сайтов, лендинг, сайт под ключ, веб-разработка, Иваново, Артём Курский, darkt30, TRIUMPH, админ панель, многостраничный сайт">
+<meta name="author" content="Артём Курский">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0a0a0f">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Артём Курский — Web-разработка сайтов под ключ">
+<meta property="og:description" content="Создаю современные сайты, которые продают. Лендинги от 25 000 ₽. Бесплатный прототип за 1 день.">
+<meta property="og:image" content="https://darkt30.ru/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://darkt30.ru/">
+<meta property="og:site_name" content="DARKT30 Portfolio">
+<meta property="og:locale" content="ru_RU">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Артём Курский — Создаю сайты, которые продают">
+<meta name="twitter:description" content="Лендинги от 25 000 ₽. Кейс TRIUMPH. Бесплатный прототип.">
+<meta name="twitter:image" content="https://darkt30.ru/og-cover.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,5 95,38 78,95 22,95 5,38' fill='%23ff0033'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,5 95,38 78,95 22,95 5,38' fill='%23ff0033'/%3E%3C/svg%3E">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Артём Курский",
+  "jobTitle": "Web-разработчик",
+  "url": "https://darkt30.ru/",
+  "sameAs": [
+    "https://t.me/darkt30",
+    "https://vk.com/darktheme303"
+  ],
+  "knowsAbout": ["Web Development", "Node.js", "Frontend", "Backend", "CMS"],
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "RUB",
+    "price": "25000",
+    "description": "Лендинг под ключ"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<!-- Google Analytics (замените GA_ID на свой) -->
+<script>
+window.GA_ID = window.GA_ID || null; // Установите переменную GA_ID в .env или здесь
+if (window.GA_ID) {
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_ID;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', window.GA_ID);
+  window.gtag = gtag;
+}
+</script>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- Loading screen -->
+<div class="loader" id="loader">
+  <div class="loader-text">
+    <span data-text="LOADING">LOADING</span>
+  </div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  <div class="loader-percent">0%</div>
+</div>
+
+<!-- Particle background -->
+<canvas id="particles"></canvas>
+
+<!-- Custom cursor follower with cyber grid -->
+<div class="grid-overlay"></div>
+
+<!-- Scan lines -->
+<div class="scanlines"></div>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="logo">
+      <span class="logo-mark"></span>
+      <span class="logo-text">DARKT<span class="blink">_</span>30</span>
+    </a>
+    <div class="nav-menu">
+      <a href="#work" data-text="WORK">[01] WORK</a>
+      <a href="#process" data-text="PROCESS">[02] PROCESS</a>
+      <a href="#services" data-text="SERVICES">[03] SERVICES</a>
+      <a href="#contact" data-text="CONTACT">[04] CONTACT</a>
+    </div>
+    <a href="#contact" class="nav-cta">
+      <span>Написать</span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="grid-floor"></div>
+    <div class="grid-glow"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-tag">
+      <span class="dot"></span>
+      <span>ДОСТУПЕН ДЛЯ НОВЫХ ПРОЕКТОВ · 2026</span>
+    </div>
+
+    <h1 class="hero-title">
+      <span class="line" data-text="СОЗДАЮ">СОЗДАЮ</span>
+      <span class="line glitch" data-text="САЙТЫ">САЙТЫ,</span>
+      <span class="line outline" data-text="КОТОРЫЕ">КОТОРЫЕ</span>
+      <span class="line accent" data-text="ПРОДАЮТ.">ПРОДАЮТ.</span>
+    </h1>
+
+    <p class="hero-sub">
+      Артём Курский · Web-разработчик из Иванова<br>
+      Лендинги, многостраничники, админ-панели
+    </p>
+
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">
+        <span>Обсудить проект</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="#work" class="btn btn-ghost">
+        <span>Смотреть кейсы</span>
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num" data-target="10">0</div>
+        <div class="stat-label">проектов</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-target="5">0</div>
+        <div class="stat-label">лет опыта</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-target="24">0</div>
+        <div class="stat-label">/ 7 поддержка</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-target="100">0</div>
+        <div class="stat-label">% доволен</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-3d">
+    <div class="cube" id="cube">
+      <div class="face front">
+        <div class="face-content">
+          <div class="code-line">&lt;html&gt;</div>
+          <div class="code-line indent">&lt;body&gt;</div>
+          <div class="code-line indent2 accent">const site = </div>
+          <div class="code-line indent2">await build();</div>
+          <div class="code-line indent">&lt;/body&gt;</div>
+          <div class="code-line">&lt;/html&gt;</div>
+        </div>
+      </div>
+      <div class="face back">
+        <div class="face-content">
+          <div class="code-line accent">DEPLOYED ✓</div>
+          <div class="code-line">UPTIME: 99.9%</div>
+          <div class="code-line">SPEED: 95+</div>
+          <div class="code-line">SEO: A+</div>
+          <div class="code-line">CONV: +30%</div>
+        </div>
+      </div>
+      <div class="face right">
+        <div class="face-content">
+          <div class="code-line">REACT</div>
+          <div class="code-line">NODE.JS</div>
+          <div class="code-line">POSTGRESQL</div>
+          <div class="code-line">FIGMA</div>
+        </div>
+      </div>
+      <div class="face left">
+        <div class="face-content">
+          <div class="code-line accent">DESIGN</div>
+          <div class="code-line">SPEED</div>
+          <div class="code-line">CONVERT</div>
+        </div>
+      </div>
+      <div class="face top">
+        <div class="face-content">
+          <div class="logo-big">D30</div>
+        </div>
+      </div>
+      <div class="face bottom">
+        <div class="face-content">
+          <div class="code-line">// 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="line-down"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>★ LANDING PAGES</span>
+    <span>★ MULTI-PAGE</span>
+    <span>★ E-COMMERCE</span>
+    <span>★ CRM INTEGRATION</span>
+    <span>★ ADMIN PANELS</span>
+    <span>★ API DEVELOPMENT</span>
+    <span>★ SEO OPTIMIZATION</span>
+    <span>★ 3D ANIMATIONS</span>
+    <span>★ LANDING PAGES</span>
+    <span>★ MULTI-PAGE</span>
+    <span>★ E-COMMERCE</span>
+    <span>★ CRM INTEGRATION</span>
+    <span>★ ADMIN PANELS</span>
+    <span>★ API DEVELOPMENT</span>
+    <span>★ SEO OPTIMIZATION</span>
+    <span>★ 3D ANIMATIONS</span>
+  </div>
+</div>
+
+<!-- WORK / CASE TRIUMPH -->
+<section class="work reveal" id="work">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">[01]</div>
+      <h2 class="section-title">
+        <span class="word" data-text="SELECTED">SELECTED</span>
+        <span class="word outline" data-text="WORK">WORK_</span>
+      </h2>
+      <p class="section-sub">Главный кейс 2026 — клуб единоборств в Иваново</p>
+    </div>
+
+    <div class="case" id="caseTriumph">
+      <div class="case-gallery">
+        <div class="case-frame">
+          <div class="case-screen">
+            <div class="browser-bar">
+              <div class="dot r"></div>
+              <div class="dot y"></div>
+              <div class="dot g"></div>
+              <div class="url">triumph37.ru</div>
+            </div>
+            <div class="case-content">
+              <div class="case-hero">
+                <div class="case-tag">
+                  <span class="dot"></span>КЛУБ ЕДИНОБОРСТВ · ИВАНОВО
+                </div>
+                <h3>СИЛА <span class="red">·</span> ДИСЦИПЛИНА <span class="red">·</span> ТРИУМФ</h3>
+                <div class="case-cta-row">
+                  <div class="case-btn red">ЗАПИСАТЬСЯ</div>
+                  <div class="case-btn outline">НАПРАВЛЕНИЯ</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="case-side">
+          <div class="case-mini"><div class="browser-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="case-mini-content accent">ТРЕНИРОВКИ<br>ПН-СБ</div></div>
+          <div class="case-mini"><div class="browser-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="case-mini-content dark">ТРЕНЕРЫ</div></div>
+          <div class="case-mini"><div class="browser-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="case-mini-content red">ЗАПИСЬ</div></div>
+        </div>
+      </div>
+
+      <div class="case-info">
+        <div class="case-header">
+          <div class="case-meta">
+            <span class="tag">2026</span>
+            <span class="tag">Web Platform</span>
+            <span class="tag">CMS</span>
+          </div>
+          <h3 class="case-title">Клуб единоборств «ТРИУМФ»</h3>
+          <p class="case-desc">
+            Полноценная веб-платформа с админ-панелью, загрузкой медиа, онлайн-записью и интеграцией с VK. Сайт управляется владельцем без программистов.
+          </p>
+        </div>
+
+        <div class="case-results">
+          <div class="result">
+            <div class="result-num" data-target="9">0</div>
+            <div class="result-label">страниц</div>
+          </div>
+          <div class="result">
+            <div class="result-num" data-target="95">0</div>
+            <div class="result-label">PageSpeed</div>
+          </div>
+          <div class="result">
+            <div class="result-num">24/7</div>
+            <div class="result-label">онлайн-запись</div>
+          </div>
+          <div class="result">
+            <div class="result-num" data-target="100">0</div>
+            <div class="result-label">% доволен</div>
+          </div>
+        </div>
+
+        <div class="case-stack">
+          <div class="stack-label">STACK:</div>
+          <div class="stack-tags">
+            <span>HTML/CSS/JS</span>
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>SQLite</span>
+            <span>Figma</span>
+          </div>
+        </div>
+
+        <a href="https://triumph37.ru" target="_blank" class="case-link">
+          Открыть проект <span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process reveal" id="process">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">[02]</div>
+      <h2 class="section-title">
+        <span class="word">КАК</span>
+        <span class="word accent">РАБОТАЮ</span>
+      </h2>
+      <p class="section-sub">От идеи до запуска — прозрачный процесс</p>
+    </div>
+
+    <div class="steps">
+      <div class="step" data-step="01">
+        <div class="step-num">01</div>
+        <div class="step-line"></div>
+        <h3>Бриф и анализ</h3>
+        <p>Изучаю нишу, конкурентов, целевую аудиторию. Определяю цели и метрики успеха.</p>
+        <div class="step-time">1-2 дня</div>
+      </div>
+      <div class="step" data-step="02">
+        <div class="step-num">02</div>
+        <div class="step-line"></div>
+        <h3>Дизайн и прототип</h3>
+        <p>Рисую дизайн в Figma, делаю кликабельный прототип. Согласовываем с тобой каждый экран.</p>
+        <div class="step-time">3-5 дней</div>
+      </div>
+      <div class="step" data-step="03">
+        <div class="step-num">03</div>
+        <div class="step-line"></div>
+        <h3>Разработка</h3>
+        <p>Чистый код, адаптивная вёрстка, бэкенд, админка. Показываю промежуточные результаты.</p>
+        <div class="step-time">5-14 дней</div>
+      </div>
+      <div class="step" data-step="04">
+        <div class="step-num">04</div>
+        <div class="step-line"></div>
+        <h3>Запуск и поддержка</h3>
+        <p>Деплой на сервер, подключение аналитики, SEO-настройка. 30 дней поддержки в подарок.</p>
+        <div class="step-time">∞</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services reveal" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">[03]</div>
+      <h2 class="section-title">
+        <span class="word outline">ЧТО</span>
+        <span class="word">ДЕЛАЮ</span>
+      </h2>
+    </div>
+
+    <div class="services-grid">
+      <div class="service">
+        <div class="service-num">/01</div>
+        <h3>ЛЕНДИНГ</h3>
+        <p>Одностраничный сайт для рекламы. Высокая конверсия, мобильный адаптив, быстрый запуск.</p>
+        <div class="service-price">от <span>25 000 ₽</span></div>
+        <div class="service-time">5-7 дней</div>
+      </div>
+      <div class="service featured">
+        <div class="service-badge">★ ХИТ</div>
+        <div class="service-num">/02</div>
+        <h3>МНОГОСТРАНИЧНИК + АДМИНКА</h3>
+        <p>Полноценный сайт с CMS-системой. Сам меняешь контент, фото, цены через удобную панель.</p>
+        <div class="service-price">от <span>80 000 ₽</span></div>
+        <div class="service-time">2-4 недели</div>
+      </div>
+      <div class="service">
+        <div class="service-num">/03</div>
+        <h3>ИНТЕРНЕТ-МАГАЗИН</h3>
+        <p>Полноценный e-commerce с каталогом, корзиной, оплатой, интеграцией с CRM.</p>
+        <div class="service-price">от <span>150 000 ₽</span></div>
+        <div class="service-time">4-6 недель</div>
+      </div>
+      <div class="service">
+        <div class="service-num">/04</div>
+        <h3>РЕДИЗАЙН / ОПТИМИЗАЦИЯ</h3>
+        <p>Улучшаю существующий сайт: дизайн, скорость, конверсия. Без полного пересоздания.</p>
+        <div class="service-price">от <span>15 000 ₽</span></div>
+        <div class="service-time">3-5 дней</div>
+      </div>
+      <div class="service">
+        <div class="service-num">/05</div>
+        <h3>ПОДДЕРЖКА 24/7</h3>
+        <p>Техническая поддержка, обновления контента, мониторинг. Беру на себя всю техничку.</p>
+        <div class="service-price">от <span>5 000 ₽/мес</span></div>
+        <div class="service-time">∞</div>
+      </div>
+      <div class="service">
+        <div class="service-num">/06</div>
+        <h3>3D / АНИМАЦИЯ</h3>
+        <p>Создаю вау-эффект: 3D-объекты, scroll-анимации, particle-эффекты. Как на этом сайте.</p>
+        <div class="service-price">от <span>30 000 ₽</span></div>
+        <div class="service-time">1-2 недели</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-bg">
+    <div class="grid-bg"></div>
+  </div>
+
+  <div class="container contact-inner">
+    <div class="contact-left">
+      <div class="section-num">[04]</div>
+      <h2 class="contact-title">
+        <span class="word">ГОТОВ</span>
+        <span class="word accent">НАЧАТЬ?</span>
+      </h2>
+      <p class="contact-sub">
+        Оставьте заявку — обсудим ваш проект, покажу прототип за 1 день и пришлю коммерческое предложение. Отвечу в течение часа.
+      </p>
+
+      <div class="contact-mini-cards">
+        <a href="https://t.me/darkt30" class="mini-card" target="_blank">
+          <div class="mc-icon">💬</div>
+          <div>
+            <div class="mc-label">TELEGRAM</div>
+            <div class="mc-val">@darkt30</div>
+          </div>
+        </a>
+        <a href="https://vk.com/darktheme303" class="mini-card" target="_blank">
+          <div class="mc-icon">VK</div>
+          <div>
+            <div class="mc-label">ВКОНТАКТЕ</div>
+            <div class="mc-val">darktheme303</div>
+          </div>
+        </a>
+        <a href="tel:+79012875122" class="mini-card">
+          <div class="mc-icon">📞</div>
+          <div>
+            <div class="mc-label">ТЕЛЕФОН</div>
+            <div class="mc-val">8 (901) 287-51-22</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <form class="lead-form" id="leadForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">ВАШЕ ИМЯ *</label>
+            <input type="text" id="name" name="name" required placeholder="Иван">
+          </div>
+          <div class="form-group">
+            <label for="phone">ТЕЛЕФОН *</label>
+            <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">EMAIL</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="service">УСЛУГА</label>
+            <select id="service" name="service">
+              <option value="">— выберите —</option>
+              <option value="Лендинг">Лендинг (от 25 000 ₽)</option>
+              <option value="Многостраничник + админка">Многостраничник + админка (от 80 000 ₽)</option>
+              <option value="Интернет-магазин">Интернет-магазин (от 150 000 ₽)</option>
+              <option value="Редизайн">Редизайн / оптимизация</option>
+              <option value="Другое">Другое</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="budget">БЮДЖЕТ</label>
+            <select id="budget" name="budget">
+              <option value="">— выберите —</option>
+              <option value="до 30к">до 30 000 ₽</option>
+              <option value="30-80к">30 000 — 80 000 ₽</option>
+              <option value="80-150к">80 000 — 150 000 ₽</option>
+              <option value="150к+">от 150 000 ₽</option>
+              <option value="обсудим">обсудим</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">СООБЩЕНИЕ</label>
+          <textarea id="message" name="message" rows="3" placeholder="Расскажите коротко о вашем проекте"></textarea>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="agree" required>
+          <label for="agree">Согласен на обработку персональных данных</label>
+        </div>
+        <button type="submit" class="form-submit">
+          <span class="fs-text">ОТПРАВИТЬ ЗАЯВКУ</span>
+          <span class="fs-arrow">→</span>
+        </button>
+        <div class="form-success" id="formSuccess">
+          <div class="fs-icon">✓</div>
+          <div class="fs-text">Заявка отправлена!<br>Отвечу в течение часа</div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="marquee-bottom">
+    <div class="mb-track">
+      <span>★ LET'S BUILD ★</span>
+      <span>★ LET'S BUILD ★</span>
+      <span>★ LET'S BUILD ★</span>
+      <span>★ LET'S BUILD ★</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-row">
+      <div class="footer-col">
+        <div class="logo">
+          <span class="logo-mark"></span>
+          <span class="logo-text">DARKT<span class="blink">_</span>30</span>
+        </div>
+        <p>Создаю сайты, которые продают.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-label">КОНТАКТЫ</div>
+        <a href="https://t.me/darkt30">@darkt30</a>
+        <a href="https://vk.com/darktheme303">darktheme303</a>
+        <a href="tel:+79012875122">8 (901) 287-51-22</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-label">УСЛУГИ</div>
+        <a href="#services">Лендинги</a>
+        <a href="#services">Многостраничники</a>
+        <a href="#services">Интернет-магазины</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-label">КЕЙСЫ</div>
+        <a href="#work">TRIUMPH</a>
+        <a href="#work">Скоро</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Артём Курский</span>
+      <span>Built with <span class="red">♥</span> & dark energy</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

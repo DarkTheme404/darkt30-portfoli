@@ -1,0 +1,31 @@
+{
+  "name": "triumph-fight-club",
+  "version": "1.0.0",
+  "description": "TRIUMPH fight club + admin + portfolio landing",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js",
+    "landing": "node server/landing-server.js",
+    "bot": "node bot/index.js",
+    "leads": "node outreach/generate-leads.js",
+    "socials": "node outreach/find-socials.js",
+    "emails": "node outreach/send-emails.js",
+    "collage": "node collage/screenshot.js",
+    "video": "node collage/video-recorder.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.4.2",
+    "express": "^4.19.2",
+    "jsdom": "^29.1.1",
+    "multer": "^2.1.1",
+    "node-telegram-bot-api": "^0.67.0",
+    "nodemailer": "^8.0.11",
+    "playwright": "^1.60.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

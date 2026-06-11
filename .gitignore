@@ -1,0 +1,55 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Secrets
+.env
+.env.local
+.env.production
+
+# Uploads and generated files
+uploads/
+voiceover/
+collage/screenshots/*.mp4
+collage/screenshots/*.wav
+collage/screenshots/promo-*.mp4
+collage/*.mp4
+collage/*.wav
+server/contact/leads.json
+server/data/*.json
+!server/data/.gitkeep
+!server/contact/.gitkeep
+
+# Bot runtime data
+bot/.env
+bot/sessions/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+logs/
+
+# Build outputs
+dist/
+build/
+.next/
+.cache/
+
+# Playwright
+playwright-report/
+test-results/
+
+# Temporary
+tmp/
+temp/
+*.tmp

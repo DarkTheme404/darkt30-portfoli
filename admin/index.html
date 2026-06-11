@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ТРИУМФ · Админ-панель</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/css/admin.css?v=3">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,5 95,38 78,95 22,95 5,38' fill='%23e10600'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-view" class="login-wrap">
+  <form id="login-form" class="login-card">
+    <div class="login-logo">
+      <span class="mark"></span>
+      ТРИУМФ
+    </div>
+    <div class="login-sub">Панель администратора</div>
+    <div class="form-group">
+      <input id="login-username" type="text" placeholder="Логин" required autocomplete="username">
+    </div>
+    <div class="form-group">
+      <input id="login-password" type="password" placeholder="Пароль" required autocomplete="current-password">
+    </div>
+    <button type="submit" class="btn btn-primary">Войти</button>
+    <div id="login-error" class="login-error"></div>
+    <div class="login-hint">
+      Тестовый доступ:<br>
+      <code>admin</code> / <code>triumph2026</code>
+    </div>
+  </form>
+</div>
+
+<!-- APP -->
+<div id="app-view" class="layout" style="display: none;">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="mark"></span>
+      ТРИУМФ
+    </div>
+
+    <div class="sidebar-label">Главное</div>
+    <a class="nav-item active" data-nav="dashboard">
+      <span class="icon">📊</span>
+      <span>Дашборд</span>
+    </a>
+    <a class="nav-item" data-nav="leads">
+      <span class="icon">📥</span>
+      <span>Заявки</span>
+      <span class="badge" data-badge="leads" style="display:none">0</span>
+    </a>
+
+    <div class="sidebar-label">Контент</div>
+    <a class="nav-item" data-nav="coaches">
+      <span class="icon">👥</span>
+      <span>Тренеры</span>
+    </a>
+    <a class="nav-item" data-nav="schedule">
+      <span class="icon">📅</span>
+      <span>Расписание</span>
+    </a>
+    <a class="nav-item" data-nav="pricing">
+      <span class="icon">💰</span>
+      <span>Тарифы</span>
+    </a>
+    <a class="nav-item" data-nav="blog">
+      <span class="icon">📰</span>
+      <span>Блог</span>
+    </a>
+    <a class="nav-item" data-nav="media">
+      <span class="icon">🖼</span>
+      <span>Медиа</span>
+    </a>
+    <a class="nav-item" data-nav="branding">
+      <span class="icon">🎨</span>
+      <span>Брендинг</span>
+    </a>
+    <a class="nav-item" data-nav="texts">
+      <span class="icon">📝</span>
+      <span>Тексты</span>
+    </a>
+
+    <div class="sidebar-label">Система</div>
+    <a class="nav-item" data-nav="settings">
+      <span class="icon">⚙</span>
+      <span>Настройки</span>
+    </a>
+    <a class="nav-item" href="/" target="_blank">
+      <span class="icon">🌐</span>
+      <span>Открыть сайт</span>
+    </a>
+
+    <div class="sidebar-footer">
+      <div class="user-card">
+        <div class="user-avatar">A</div>
+        <div class="user-info">
+          <strong>Администратор</strong>
+          <span>triumph37.ru</span>
+        </div>
+      </div>
+      <button class="logout-btn" id="logout-btn">Выйти</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <h1 id="page-title">Дашборд</h1>
+        <p id="page-subtitle">Обзор активности клуба</p>
+      </div>
+      <div class="topbar-actions">
+        <button class="menu-toggle" id="menu-toggle" title="Меню">☰</button>
+        <a href="/" target="_blank" class="btn btn-ghost btn-sm">🌐 На сайт</a>
+      </div>
+    </div>
+    <div id="main-content"></div>
+  </main>
+</div>
+
+<!-- MODAL -->
+<div id="modal-overlay" class="modal-overlay">
+  <div id="modal-content" class="modal"></div>
+</div>
+
+<script src="/admin/js/admin.js?v=3"></script>
+</body>
+</html>

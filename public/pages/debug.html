@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html><head><title>Debug</title></head>
+<body style="font-family:monospace;background:#000;color:#0f0;padding:20px;">
+<h1>SITEDATA DEBUG</h1>
+<pre id="out" style="background:#111;padding:20px;border-radius:8px;">Loading...</pre>
+<script src="/js/site-data.v3.js?v=4"></script>
+<script>
+setTimeout(() => {
+  const out = document.getElementById('out');
+  out.textContent = 'window.SiteData: ' + (typeof window.SiteData) + '\n';
+  out.textContent += 'SiteData._ready: ' + (window.SiteData && window.SiteData._ready) + '\n';
+  out.textContent += 'SiteData._data: ' + (window.SiteData && !!window.SiteData._data) + '\n';
+  if (window.SiteData && window.SiteData._data) {
+    out.textContent += 'coaches: ' + window.SiteData._data.coaches.length + '\n';
+    out.textContent += 'media: ' + window.SiteData._data.media.length + '\n';
+    out.textContent += 'branding.logo: ' + window.SiteData._data.branding.logo + '\n';
+  }
+}, 2000);
+
+// Also test direct fetch
+fetch('/api/content').then(r => r.json()).then(d => {
+  document.getElementById('out').textContent += '\n--- direct fetch OK ---\n';
+  document.getElementById('out').textContent += 'coaches: ' + d.coaches.length + '\n';
+}).catch(e => {
+  document.getElementById('out').textContent += '\n--- direct fetch FAILED: ' + e.message + ' ---\n';
+});
+</script>
+</body></html>

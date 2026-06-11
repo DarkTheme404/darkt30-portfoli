@@ -1,0 +1,373 @@
+/* TRIUMPH — Promo Video with voiceover
+   1080×1920 (9:16) — captions + visuals */
+
+:root {
+  --black: #0a0a0a;
+  --black-2: #141414;
+  --black-3: #1c1c1c;
+  --red: #e10600;
+  --red-2: #ff2a1f;
+  --red-dark: #a30400;
+  --white: #ffffff;
+  --gray: #b8b8b8;
+  --gray-2: #6b6b6b;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #050505;
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+.stage {
+  width: 1080px;
+  height: 1920px;
+  position: relative;
+  overflow: hidden;
+  background: var(--black);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 80px 300px;
+  text-align: center;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.slide-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.slide-bg.glow {
+  background:
+    radial-gradient(ellipse at 30% 30%, rgba(225, 6, 0, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(225, 6, 0, 0.15) 0%, transparent 50%),
+    linear-gradient(180deg, var(--black) 0%, #050505 100%);
+}
+.slide-bg.grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+}
+
+.slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============ SLIDE 1: HOOK ============ */
+.s1-emoji {
+  font-size: 7rem;
+  margin-bottom: 40px;
+  filter: drop-shadow(0 0 30px rgba(225, 6, 0, 0.6));
+  animation: pulseEmoji 1.6s ease-in-out infinite;
+}
+@keyframes pulseEmoji {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+.s1-num {
+  font-family: 'Oswald', Impact, sans-serif;
+  font-size: 14rem;
+  font-weight: 700;
+  color: var(--red);
+  line-height: 0.85;
+  text-shadow: 0 0 60px rgba(225, 6, 0, 0.5);
+  margin-bottom: 30px;
+  letter-spacing: -0.02em;
+}
+.s1-num small {
+  display: block;
+  font-size: 3.5rem;
+  color: var(--gray);
+  font-weight: 400;
+  margin-top: 20px;
+  letter-spacing: 0;
+}
+.s1-headline {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+/* ============ SLIDE 2: PROBLEM ============ */
+.s2-icon {
+  font-size: 9rem;
+  margin-bottom: 40px;
+  filter: grayscale(0.4);
+  opacity: 0.8;
+}
+.s2-headline {
+  font-family: 'Oswald', sans-serif;
+  font-size: 5.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: var(--white);
+  margin-bottom: 30px;
+}
+.s2-headline .accent { color: var(--red); }
+.s2-money {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-top: 30px;
+}
+.s2-money .arrow {
+  font-size: 4rem;
+  color: var(--red);
+}
+.s2-money .loss {
+  font-family: 'Oswald', sans-serif;
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--red);
+  text-shadow: 0 0 30px rgba(225, 6, 0, 0.4);
+}
+
+/* ============ SLIDE 3: SOLUTION ============ */
+.s3-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 30px;
+}
+.s3-item {
+  padding: 24px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.s3-item .ic { font-size: 2.5rem; }
+.s3-item .lbl {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: center;
+  line-height: 1.1;
+}
+.s3-clock {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 32px;
+  background: var(--red);
+  border-radius: 100px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 40px;
+  box-shadow: 0 10px 30px rgba(225, 6, 0, 0.4);
+  animation: pulseBtn 1.6s ease-in-out infinite;
+}
+@keyframes pulseBtn {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* ============ SLIDE 4: CASE ============ */
+.s4-emoji {
+  font-size: 8rem;
+  margin-bottom: 30px;
+}
+.s4-features {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 30px;
+}
+.s4-feat {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  text-align: left;
+  animation: slideIn 0.5s ease-out both;
+}
+.s4-feat:nth-child(1) { animation-delay: 0.1s; }
+.s4-feat:nth-child(2) { animation-delay: 0.3s; }
+.s4-feat:nth-child(3) { animation-delay: 0.5s; }
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.s4-feat .check {
+  width: 36px; height: 36px;
+  background: var(--red);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.s4-feat .text {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* ============ SLIDE 5: CTA ============ */
+.s5-headline {
+  font-family: 'Oswald', sans-serif;
+  font-size: 5.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin-bottom: 30px;
+}
+.s5-headline .accent { color: var(--red); }
+.s5-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 50px;
+  background: var(--white);
+  color: var(--red);
+  border-radius: 100px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 30px 0;
+  box-shadow: 0 20px 50px rgba(255, 255, 255, 0.2);
+  animation: pulseBtn 1.6s ease-in-out infinite;
+}
+.s5-contacts {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 800px;
+}
+.s5-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 100px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  text-decoration: none;
+}
+.s5-chip .ic { font-size: 1.2rem; }
+
+/* ============ CAPTIONS BAR ============ */
+.captions {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 100px);
+  max-width: 920px;
+  z-index: 10;
+  text-align: center;
+  pointer-events: none;
+}
+.caption {
+  display: inline-block;
+  padding: 18px 32px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.3;
+  border: 2px solid rgba(225, 6, 0, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.caption.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.caption .word {
+  display: inline-block;
+  transition: color 0.2s;
+}
+.caption .word.active { color: var(--red); }
+
+/* Logo corner */
+.corner-logo {
+  position: absolute;
+  top: 60px;
+  left: 80px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  z-index: 5;
+}
+.corner-logo .mark {
+  width: 36px; height: 36px;
+  background: var(--red);
+  clip-path: polygon(50% 0, 100% 38%, 82% 100%, 18% 100%, 0 38%);
+  position: relative;
+}
+.corner-logo .mark::after {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  background: var(--black);
+  clip-path: polygon(50% 0, 100% 38%, 82% 100%, 18% 100%, 0 38%);
+}
+
+/* Progress */
+.progress {
+  position: absolute;
+  top: 0; left: 0;
+  height: 5px;
+  background: var(--red);
+  z-index: 20;
+  box-shadow: 0 0 16px var(--red);
+}
