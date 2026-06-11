@@ -491,7 +491,10 @@ if (window.GA_ID) {
     </div>
 
     <div class="contact-right">
-      <form class="lead-form" id="leadForm">
+      <form class="lead-form" id="leadForm" action="https://formspree.io/f/xzdqaavy" method="POST">
+        <!-- Honeypot антиспам — боты заполнят, люди не увидят -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_subject" value="🔥 Новая заявка с darkt30.ru">
         <div class="form-row">
           <div class="form-group">
             <label for="name">ВАШЕ ИМЯ *</label>
@@ -535,7 +538,7 @@ if (window.GA_ID) {
           <textarea id="message" name="message" rows="3" placeholder="Расскажите коротко о вашем проекте"></textarea>
         </div>
         <div class="form-check">
-          <input type="checkbox" id="agree" required>
+          <input type="checkbox" id="agree" name="agree" required>
           <label for="agree">Согласен на обработку персональных данных</label>
         </div>
         <button type="submit" class="form-submit">

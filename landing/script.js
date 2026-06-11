@@ -240,7 +240,9 @@
     });
   }
 
-  // ========== LEAD FORM SUBMIT ==========
+  // ========== LEAD FORM SUBMIT (Formspree) ==========
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xzdqaavy';
+
   const leadForm = document.getElementById('leadForm');
   const formSuccess = document.getElementById('formSuccess');
   if (leadForm) {
@@ -254,26 +256,32 @@
 
       const data = Object.fromEntries(new FormData(leadForm).entries());
 
+      // Formspree принимает form-data, urlencoded или JSON.
+      // Используем form-data для совместимости и антиспама.
+      const formData = new FormData();
+      Object.keys(data).forEach(key => formData.append(key, data[key]));
+
       try {
-        const res = await fetch('/api/contact', {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
+          headers: { 'Accept': 'application/json' },
+          body: formData
         });
-        const result = await res.json();
-        if (!res.ok || !result.ok) throw new Error(result.error || 'Ошибка отправки');
+
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          throw new Error(err.error || 'Ошибка отправки');
+        }
 
         // Show success
         leadForm.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = true);
-        leadForm.querySelector('.form-submit').style.display = 'none';
+        submitBtn.style.display = 'none';
         formSuccess.classList.add('show');
 
-        // Track event (for GA if added)
         if (typeof gtag === 'function') {
           gtag('event', 'lead_submit', { service: data.service, budget: data.budget });
         }
 
-        // Auto-hide form, show success
         setTimeout(() => {
           formSuccess.innerHTML = '<div class="fs-icon">🎉</div><div class="fs-text">Спасибо! Напишу вам в течение часа.</div>';
         }, 200);
